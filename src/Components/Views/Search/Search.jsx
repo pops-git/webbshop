@@ -9,7 +9,8 @@ const SearchProduct = async (searchValue) => {
 
     const allProducts = await GetProducts()
 
-    let searchedProducts = allProducts.filter(product => product.name.toLowerCase().includes(searchValue.toLowerCase()) || product.description.toLowerCase().includes(searchValue.toLowerCase()));
+    let searchedProducts = allProducts.filter(product => (product.name || product.description || product.category)
+                                                        .toLowerCase().includes(searchValue.toLowerCase()));
 
     console.table(searchedProducts)
 
