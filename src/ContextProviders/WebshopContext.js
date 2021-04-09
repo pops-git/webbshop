@@ -1,4 +1,5 @@
 import React, { useState, createContext, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { GetUserByLoginCredentials } from "../Functions/API/GetUserByLoginCredentials";
 import { GetProducts } from "../Functions/API/GetProducts";
 import { GetProductById } from "../Functions/API/GetProductById";
@@ -13,10 +14,19 @@ export function ProductsProvider ({children}) {
     const[products, setProducts] = useState("")
     const[product, setProduct] = useState("")
     const[user, setUser] = useState("")
+    let history = useHistory()
 
     const getProducts = async () => {
         let productArr = await GetProducts()
         setProducts(await productArr)
+    }
+
+    const searchProducts = async (searchValue) => {
+        let productArr = await GetProducts()
+        let searchedProducts = productArr.filter(product => (product.name || product.description || product.category)
+                                                        .toLowerCase().includes(searchValue.toLowerCase()));
+        history.push('/Search')
+        setProducts(searchedProducts)
     }
 
     const getProduct = async (id) => {
@@ -32,6 +42,7 @@ export function ProductsProvider ({children}) {
     const value = {
         products,
         getProducts,
+        searchProducts,
         product,
         getProduct,
         user,

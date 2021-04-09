@@ -9,7 +9,7 @@ export const ProductList = ({products}) => {
         )
     })
     return (
-        <CardDeck className="mx-auto my-5" style={{ width: "80%" }}>
+        <CardDeck className="mx-auto my-5">
             {list}
         </CardDeck>
     )

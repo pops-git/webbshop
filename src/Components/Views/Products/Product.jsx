@@ -6,19 +6,23 @@ export const Product = ({product}) => {
 
     const url = `/ProductDetailed/${product.productId}`
 
+    const cardStyle = {
+        maxWidth: '21rem',
+        minWidth: '21rem',
+        boxShadow: '10px 10px 20px grey',
+        textAlign: 'center'
+    }
+
     return (
-        <Card className="my-2" style={{ maxWidth: '21rem' }}>
+        <Card className="mx-auto" style={cardStyle}>
             <Card.Body>
                 <Card.Img variant="top" src={`/Img/${product.productId}.jpg`} style={{height: '12rem'}} />
-                
             </Card.Body>
             <Card.Footer>
                 <Card.Title>{product.name}</Card.Title>
                 <Card.Text>
-                    <ul>
-                        <li>{product.category}</li>
-                        <li>{product.price} SEK</li>
-                    </ul>
+                    <h6>{product.category}</h6>
+                    <h6>{product.price} SEK</h6>
                 </Card.Text>
                 <Button variant="primary" href = {url}>Info</Button>
             </Card.Footer>
