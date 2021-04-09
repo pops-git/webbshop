@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useWebshop } from "../../../ContextProviders/WebshopContext";
 import { Product } from "./Product";
+import CardDeck from 'react-bootstrap/CardDeck'
 
 export const ShowProducts = () => {
     
@@ -25,8 +26,8 @@ export const ShowProducts = () => {
         )
     }
     return (
-        <>
+        <CardDeck className="mx-auto my-5" style={{ width: "80%" }}>
             {productsList}
-        </>
+        </CardDeck>
     )
 }

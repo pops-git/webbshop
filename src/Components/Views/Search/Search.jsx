@@ -3,6 +3,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import { GetProducts } from "../../../Functions/API/GetProducts";
 import { ProductList } from "../Products/ProductList";
+import './Search.css';
 
 
 const SearchProduct = async (searchValue) => {
@@ -11,9 +12,6 @@ const SearchProduct = async (searchValue) => {
 
     let searchedProducts = allProducts.filter(product => (product.name || product.description || product.category)
                                                         .toLowerCase().includes(searchValue.toLowerCase()));
-
-    console.table(searchedProducts)
-
     return searchedProducts
 }
 
@@ -40,12 +38,14 @@ export const Search = () => {
 
     return (
         <>
-            <InputGroup className="mb-3"  size="lg">
-                <input type="text" placeholder="Vad letar du efter?" ref={searchValue} size="100" />
-                <InputGroup.Append>
-                    <Button variant="outline-secondary" onClick={() => mySearch(searchValue.current.value)}>Search</Button>
-                </InputGroup.Append>
-            </InputGroup>
+            <div className="SearchBar">
+                <InputGroup className="mb-3" size="lg">
+                    <input type="text" placeholder="What are you looking for?" ref={searchValue} size="50"/>
+                    <InputGroup.Append>
+                        <Button variant="outline-secondary" onClick={() => mySearch(searchValue.current.value)}>Search</Button>
+                    </InputGroup.Append>
+                </InputGroup>
+            </div>
             {productList}
         </>
     );
