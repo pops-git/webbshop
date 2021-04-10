@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { useHistory } from 'react-router-dom';
 import { useWebshop } from "../../../ContextProviders/WebshopContext";
 import "./Login.css";
 
@@ -8,6 +9,7 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const {loginUser, isAuthenticated} = useWebshop()
+  let history = useHistory()
 
   function validateForm() {
     return email.length > 0 && password.length > 0;

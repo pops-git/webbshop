@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom';
 
 export const Product = ({product}) => {
     let history = useHistory()
-    /* const url = `/ProductDetailed/${product.productId}` */
 
     const viewProduct = () => {
         history.push(`/ProductDetailed/${product.productId}`)

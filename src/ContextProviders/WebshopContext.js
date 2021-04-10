@@ -15,6 +15,7 @@ export function ProductsProvider ({children}) {
     const[product, setProduct] = useState("")
     const[user, setUser] = useState("")
     const[isAuthenticated, userHasAuthenticated] = useState(false);
+    const[basket, setBasket] = useState([])
     let history = useHistory()
 
     const getProducts = async () => {

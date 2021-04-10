@@ -7,12 +7,11 @@ export const ShowProducts = () => {
     
     const {products, getProducts} = useWebshop()
 
-    let productsList
-
     useEffect(() => {
         getProducts()
     }, [])
 
+    let productsList
     if(products){
         productsList = products.map(product => {
             return (

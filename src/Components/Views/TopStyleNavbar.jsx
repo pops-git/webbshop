@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import { useHistory } from 'react-router-dom';
 import { useWebshop } from "../../ContextProviders/WebshopContext";
-import { Navbar,Nav, Form, FormControl, Button } from 'react-bootstrap'
+import { Navbar,Nav, Form, FormControl } from 'react-bootstrap'
 
 export const TopStyleNavbar = () => {
     const {searchProducts, isAuthenticated, userHasAuthenticated} = useWebshop()
@@ -28,10 +28,16 @@ export const TopStyleNavbar = () => {
     let loggedIn = (
         <Nav.Link href="/Login">Login</Nav.Link>
     )
+    let myBasket = (
+        <></>
+    )
 
     if(isAuthenticated){
         loggedIn = (
             <Nav.Link onClick={() => {signOut()}}>Logout</Nav.Link>
+        )
+        myBasket = (
+            <Nav.Link onClick={() => {signOut()}}>Basket ()</Nav.Link>
         )
     }
 
@@ -44,6 +50,7 @@ export const TopStyleNavbar = () => {
                 {/* <Nav.Link  href="/">Home</Nav.Link> */}
                 <Nav.Link onClick={() => {goHome()}}>Home</Nav.Link>
                 {loggedIn}
+                {myBasket}
                 <Form className="ml-auto">
                     <FormControl type="text" ref={searchText} placeholder="Search here" className=" mr-sm-2" onChange={handleSubmit} />
                 </Form>

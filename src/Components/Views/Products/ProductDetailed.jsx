@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 
 export const ProductDetailed = () => {
     const {id} = useParams()
-    const {product, getProduct} = useWebshop()
+    const {product, getProduct, basket, setBasket} = useWebshop()
 
     const canShowProduct = product !== undefined
 
@@ -14,7 +14,9 @@ export const ProductDetailed = () => {
         getProduct(id)
     },[])
 
-    const url = `/Buy/${product.productId}`
+    const buyProduct = () => {
+        setBasket(...basket, id)
+    }
 
     if(canShowProduct){
         return (
@@ -33,7 +35,7 @@ export const ProductDetailed = () => {
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                    <Button variant="primary" href = {url}>Buy</Button>
+                    <Button variant="primary" onClick={() => {buyProduct()}}>Buy</Button>
                 </Card.Footer>
             </Card>
         )

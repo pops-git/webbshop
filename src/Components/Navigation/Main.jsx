@@ -2,6 +2,7 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom'
 import { Search } from "../Views/Search/Search";
 import { Login } from "../Views/Login/Login";
+import { Basket } from "../Views/Basket/Basket";
 import { ShowProducts } from "../Views/Products/ShowProducts";
 import { ProductDetailed } from "../Views/Products/ProductDetailed";
 
@@ -11,6 +12,7 @@ export const Main = () => {
             <Route exact path = "/" component = {ShowProducts} />
             <Route path = "/Search" component = {Search} />
             <Route path = "/Login" component = {Login}/>
+            <Route path = "/Basket" component = {Basket}/>
             <Route path = "/ProductDetailed/:id" component = {ProductDetailed}/>
         </Switch>
     )
