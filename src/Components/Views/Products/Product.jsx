@@ -1,10 +1,15 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { useHistory } from 'react-router-dom';
 
 export const Product = ({product}) => {
+    let history = useHistory()
+    /* const url = `/ProductDetailed/${product.productId}` */
 
-    const url = `/ProductDetailed/${product.productId}`
+    const viewProduct = () => {
+        history.push(`/ProductDetailed/${product.productId}`)
+    }
 
     const cardStyle = {
         maxWidth: '21rem',
@@ -24,7 +29,7 @@ export const Product = ({product}) => {
                     <h6>{product.category}</h6>
                     <h6>{product.price} SEK</h6>
                 </Card.Text>
-                <Button variant="primary" href = {url}>Info</Button>
+                <Button variant="primary" onClick={() => {viewProduct()}}>Info</Button>
             </Card.Footer>
         </Card>
     )

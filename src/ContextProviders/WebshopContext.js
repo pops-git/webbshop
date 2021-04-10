@@ -14,6 +14,7 @@ export function ProductsProvider ({children}) {
     const[products, setProducts] = useState("")
     const[product, setProduct] = useState("")
     const[user, setUser] = useState("")
+    const[isAuthenticated, userHasAuthenticated] = useState(false);
     let history = useHistory()
 
     const getProducts = async () => {
@@ -34,19 +35,24 @@ export function ProductsProvider ({children}) {
         setProduct(await productInfo)
     }
 
-    const getUser = async (email, password) => {
+    const loginUser = async (email, password) => {
         let userObj = await GetUserByLoginCredentials(email, password)
         setUser(await userObj)
+        if(userObj !== undefined){
+            userHasAuthenticated(true)
+        }
     }
 
     const value = {
+        isAuthenticated,
+        userHasAuthenticated,
         products,
         getProducts,
         searchProducts,
         product,
         getProduct,
         user,
-        getUser
+        loginUser
     }
     return (
         <webshopContext.Provider value={value}>{children}</webshopContext.Provider>

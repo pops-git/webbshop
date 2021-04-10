@@ -16,10 +16,9 @@ export const ProductDetailed = () => {
 
     const url = `/Buy/${product.productId}`
 
-    let details = (<></>)
     if(canShowProduct){
-        details = (
-            <Card bg='light' text='dark' style={{ width: '30rem', height: '45rem' }}>
+        return (
+            <Card className="mx-auto" bg='light' text='dark' style={{ width: '30rem', height: '45rem', marginTop: '3rem' }}>
                 <Card.Header>
                     <Card.Title>{product.name}</Card.Title>
                 </Card.Header>
@@ -39,9 +38,9 @@ export const ProductDetailed = () => {
             </Card>
         )
     }
-    return (
-        <div className="grid-item">
-            {details}
-        </div>
-    )
+    else{
+        return (
+            <></>
+        )
+    }
 }
