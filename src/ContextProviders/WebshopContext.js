@@ -16,7 +16,12 @@ export function ProductsProvider ({children}) {
     const[user, setUser] = useState("")
     const[isAuthenticated, userHasAuthenticated] = useState(false);
     const[basket, setBasket] = useState([])
+    const[totalPrice, setTotalPrice] = useState(0)
     let history = useHistory()
+
+    const placeOrder = async () => {
+        
+    }
 
     const getProducts = async () => {
         let productArr = await GetProducts()
@@ -44,14 +49,25 @@ export function ProductsProvider ({children}) {
         }
     }
 
+    const addToBasket = (product) => {
+        setBasket([...basket, product])
+        setTotalPrice(parseInt(totalPrice) + parseInt(product.price))
+    }
+
     const value = {
         isAuthenticated,
         userHasAuthenticated,
+
+        basket,
+        addToBasket,
+
+        totalPrice,
         products,
         getProducts,
         searchProducts,
         product,
         getProduct,
+
         user,
         loginUser
     }
