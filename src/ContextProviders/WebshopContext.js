@@ -23,8 +23,11 @@ export function ProductsProvider ({children}) {
     const[totalPrice, setTotalPrice] = useState(0)
     let history = useHistory()
 
-    function countInArray(array, value) {
-        return array.reduce((n, x) => n + (x === value), 0);
+    function countInArray(array, what) {
+        return array.filter(item => item === what).length;
+    }
+    function removeDuplicates(data){
+        return [...new Set(data)]
     }
 
     const placeOrder = async () => {
@@ -33,10 +36,21 @@ export function ProductsProvider ({children}) {
         let data = await PostOrder(jsonOrderBody)
         console.log(data.orderId)
         
-        let uniqueBasket = [...new Set(basket)]
-        uniqueBasket.forEach(async (product) => {
-            let quantity = countInArray(basket, product)
-            let jsonOrderDetailsBody = await CreateOrderDetailsBody(data.orderId, product.productId, quantity)
+        let listOfProductIds = basket.map(product => {
+            return product.productId
+        })
+        console.log("listOfProductIds" + listOfProductIds)
+
+        let orderedListOfProductIds = listOfProductIds.sort()
+        console.log("orderedListOfProductIds" + orderedListOfProductIds)
+
+        let uniqueListOfProductIds = removeDuplicates(orderedListOfProductIds)
+        console.log("uniqueListOfProductIds: " + uniqueListOfProductIds)
+
+        uniqueListOfProductIds.forEach(async (id) => {
+            let quantity = countInArray(orderedListOfProductIds, id)
+            console.log("quantity: " + quantity)
+            let jsonOrderDetailsBody = await CreateOrderDetailsBody(data.orderId, id, quantity)
             await PostOrderDetail(jsonOrderDetailsBody)
         })
         
