@@ -9,6 +9,8 @@ export const ShowProducts = () => {
 
     useEffect(() => {
         getProducts()
+        // This is okay to ignore because we never change getProducts
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     let productsList

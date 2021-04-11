@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import { useWebshop } from "../../../ContextProviders/WebshopContext";
 import { useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
@@ -6,12 +6,14 @@ import Button from 'react-bootstrap/Button';
 
 export const ProductDetailed = () => {
     const {id} = useParams()
-    const {product, getProduct, basket, addToBasket, isAuthenticated} = useWebshop()
+    const {product, getProduct, addToBasket, isAuthenticated} = useWebshop()
 
     const canShowProduct = product !== undefined
 
     useEffect(() => {
         getProduct(id)
+        // This is okay to ignore because we never change getProduct, or change id while on product page
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     const handleClick = (e) => {
@@ -27,13 +29,11 @@ export const ProductDetailed = () => {
                 </Card.Header>
                 <Card.Body>
                     <Card.Img variant="top" src={`/Img/${product.productId}.jpg`} />
-                    <Card.Text>
                     <table>
                         <tr><td>{product.description}</td></tr>
                         <tr><td>{product.category}</td></tr>
                         <tr><td>{product.price} SEK</td></tr>
                     </table>
-                    </Card.Text>
                 </Card.Body>
                 <Card.Footer>
                     {isAuthenticated ? <Button variant="primary" onClick={handleClick}>Buy</Button> : <></>}

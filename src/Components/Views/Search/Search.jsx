@@ -1,8 +1,5 @@
-import React, {useState, useRef} from 'react';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Button from 'react-bootstrap/Button';
+import React from 'react';
 import { useWebshop } from "../../../ContextProviders/WebshopContext";
-import { GetProducts } from "../../../Functions/API/GetProducts";
 import { ProductList } from "../Products/ProductList";
 import './Search.css';
 

@@ -24,10 +24,8 @@ export const Product = ({product}) => {
             </Card.Body>
             <Card.Footer>
                 <Card.Title>{product.name}</Card.Title>
-                <Card.Text>
                     <h6>{product.category}</h6>
                     <h6>{product.price} SEK</h6>
-                </Card.Text>
                 <Button variant="primary" onClick={() => {viewProduct()}}>Info</Button>
             </Card.Footer>
         </Card>

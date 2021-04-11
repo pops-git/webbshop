@@ -11,9 +11,9 @@ export const Basket = () => {
         placeOrder()
     }
 
-    let list = basket.map(product => {
+    let list = basket.map((product, index) => {
         return (
-                <BasketProduct product = {product} />
+                <BasketProduct product = {product} key = {index} />
         )
     })
 
