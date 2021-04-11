@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 export const Product = ({product}) => {
     let history = useHistory()
+    const price = parseInt(product.price).toLocaleString()
 
     const viewProduct = () => {
         history.push(`/ProductDetailed/${product.productId}`)
@@ -25,7 +26,7 @@ export const Product = ({product}) => {
             <Card.Footer>
                 <Card.Title>{product.name}</Card.Title>
                     <h6>{product.category}</h6>
-                    <h6>{product.price} SEK</h6>
+                    <h6>{price} SEK</h6>
                 <Button variant="primary" onClick={() => {viewProduct()}}>Info</Button>
             </Card.Footer>
         </Card>

@@ -23,16 +23,16 @@ export const ProductDetailed = () => {
 
     if(canShowProduct){
         return (
-            <Card className="mx-auto" bg='light' text='dark' style={{ width: '30rem', height: '45rem', marginTop: '3rem' }}>
+            <Card className="mx-auto" bg='light' text='dark' style={{ width: '30rem', height: '52rem', marginTop: '3rem' }}>
                 <Card.Header>
                     <Card.Title>{product.name}</Card.Title>
                 </Card.Header>
                 <Card.Body>
-                    <Card.Img variant="top" src={`/Img/${product.productId}.jpg`} />
+                    <Card.Img variant="top" src={`/Img/${product.productId}.jpg`} /> <br/><br/>
                     <table>
-                        <tr><td>{product.description}</td></tr>
-                        <tr><td>{product.category}</td></tr>
-                        <tr><td>{product.price} SEK</td></tr>
+                        <tr><td><h6>Description: </h6>{product.description}</td></tr>
+                        <tr><td><h6>Category: </h6>{product.category}</td></tr>
+                        <tr><td><h6>Price: </h6>{product.price} SEK</td></tr>
                     </table>
                 </Card.Body>
                 <Card.Footer>

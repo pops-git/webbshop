@@ -19,6 +19,7 @@ export function ProductsProvider ({children}) {
     const[product, setProduct] = useState("")
     const[user, setUser] = useState("")
     const[isAuthenticated, userHasAuthenticated] = useState(false);
+    const[hasOrdered, setHasOrdered] = useState(false);
     const[basket, setBasket] = useState([])
     const[totalPrice, setTotalPrice] = useState(0)
     let history = useHistory()
@@ -55,7 +56,7 @@ export function ProductsProvider ({children}) {
         })
         
 
-        
+        setHasOrdered(true)
         setBasket([])
         setTotalPrice(0)
     }
@@ -92,11 +93,14 @@ export function ProductsProvider ({children}) {
     }
 
     const addToBasket = (product) => {
+        setHasOrdered(false)
         setBasket([...basket, product])
         setTotalPrice(parseInt(totalPrice) + parseInt(product.price))
     }
 
     const value = {
+        hasOrdered,
+
         placeOrder,
 
         isAuthenticated,
