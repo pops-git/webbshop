@@ -67,8 +67,13 @@ export function ProductsProvider ({children}) {
 
     const searchProducts = async (searchValue) => {
         let productArr = await GetProducts()
-        let searchedProducts = productArr.filter(product => (product.name || product.description || product.category)
-                                                        .toLowerCase().includes(searchValue.toLowerCase()));
+        const searchLower = searchValue.toLowerCase();
+        const searchedProducts = productArr.filter(
+          (product) =>
+            product.name.toLowerCase().includes(searchLower) ||
+            product.description.toLowerCase().includes(searchLower) ||
+            product.category.toLowerCase().includes(searchLower)
+        )
         history.push('/Search')
         setProducts(searchedProducts)
     }
