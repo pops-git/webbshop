@@ -4,8 +4,12 @@ import { BasketProduct } from "./BasketProduct";
 import Button from 'react-bootstrap/Button';
 
 export const Basket = () => {
-    const{basket, totalPrice} = useWebshop()
+    const{basket, totalPrice, placeOrder} = useWebshop()
     const total = parseInt(totalPrice).toLocaleString()
+
+    const order = () => {
+        placeOrder()
+    }
 
     let list = basket.map(product => {
         return (
@@ -24,7 +28,7 @@ export const Basket = () => {
             {list}
             <br/>
             <h6>Total price: {total} SEK</h6>
-            <Button style={{width: "10rem"}}>Place order</Button>
+            <Button style={{width: "10rem"}} onClick={order}>Place order</Button>
         </div>
     )
 }

@@ -2,6 +2,10 @@ import React, { useState, createContext, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { GetUserByLoginCredentials } from "../Functions/API/GetUserByLoginCredentials";
 import { GetProducts } from "../Functions/API/GetProducts";
+import { PostOrder } from "../Functions/API/PostOrder";
+import { PostOrderDetail } from "../Functions/API/PostOrderDetail";
+import { CreateOrderBody } from "../Functions/CreateOrderBody";
+import { CreateOrderDetailsBody } from "../Functions/CreateOrderDetailsBody";
 import { GetProductById } from "../Functions/API/GetProductById";
 
 const webshopContext = createContext()
@@ -19,8 +23,27 @@ export function ProductsProvider ({children}) {
     const[totalPrice, setTotalPrice] = useState(0)
     let history = useHistory()
 
+    function countInArray(array, value) {
+        return array.reduce((n, x) => n + (x === value), 0);
+    }
+
     const placeOrder = async () => {
+        let jsonOrderBody = await CreateOrderBody(user, totalPrice)
+        console.log(jsonOrderBody)
+        let data = await PostOrder(jsonOrderBody)
+        console.log(data.orderId)
         
+        let uniqueBasket = [...new Set(basket)]
+        uniqueBasket.forEach(async (product) => {
+            let quantity = countInArray(basket, product)
+            let jsonOrderDetailsBody = await CreateOrderDetailsBody(data.orderId, product.productId, quantity)
+            await PostOrderDetail(jsonOrderDetailsBody)
+        })
+        
+
+        
+        setBasket([])
+        setTotalPrice(0)
     }
 
     const getProducts = async () => {
@@ -55,6 +78,8 @@ export function ProductsProvider ({children}) {
     }
 
     const value = {
+        placeOrder,
+
         isAuthenticated,
         userHasAuthenticated,
 

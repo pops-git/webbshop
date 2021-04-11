@@ -8,9 +8,7 @@ export const TopStyleNavbar = () => {
     const searchText = useRef()
     let history = useHistory()
     let basketHasItems = basket.length > 0
-
-    console.log(isAuthenticated)
-
+    
     const handleSubmit = (e) => {
         e.preventDefault()
         searchProducts(searchText.current.value)
