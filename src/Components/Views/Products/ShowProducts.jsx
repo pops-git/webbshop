@@ -21,7 +21,7 @@ export const ShowProducts = () => {
     }
     else{
         productsList = (
-            <p>no products found</p>
+            <p>No products found, check your connection.</p>
         )
     }
     return (

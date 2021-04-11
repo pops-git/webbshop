@@ -20,37 +20,42 @@ export const Login = () => {
     loginUser(email, password)
   }
 
+  let isLoggedIn = (<></>)
   if(isAuthenticated){
-    return (
-      <p>Logged In!</p>
+    isLoggedIn = (
+      <h6 style={{color: "green"}}>Login successfull!</h6>
     )
   }
   else{
-    return (
-      <div className="Login">
-        <Form onSubmit={handleSubmit}>
-          <Form.Group size="lg" controlId="email">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              autoFocus
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group size="lg" controlId="password">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-          <Button block size="lg" type="submit" disabled={!validateForm()}>
-            Login
-          </Button>
-        </Form>
-      </div>
-    );
+    isLoggedIn = (
+      (<></>)
+    )
   }
+  return (
+    <div className="Login">
+      <Form onSubmit={handleSubmit}>
+        <Form.Group size="lg" controlId="email">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            autoFocus
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group size="lg" controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Form.Group>
+        {isLoggedIn}
+        <Button block size="lg" type="submit" disabled={!validateForm()}>
+          Login
+        </Button>
+      </Form>
+    </div>
+  );
 }

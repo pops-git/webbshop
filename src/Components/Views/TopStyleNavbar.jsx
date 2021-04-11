@@ -4,9 +4,10 @@ import { useWebshop } from "../../ContextProviders/WebshopContext";
 import { Navbar,Nav, Form, FormControl } from 'react-bootstrap'
 
 export const TopStyleNavbar = () => {
-    const {searchProducts, isAuthenticated, userHasAuthenticated} = useWebshop()
+    const {searchProducts, isAuthenticated, userHasAuthenticated, basket} = useWebshop()
     const searchText = useRef()
     let history = useHistory()
+    let basketHasItems = basket.length > 0
 
     console.log(isAuthenticated)
 
@@ -25,6 +26,10 @@ export const TopStyleNavbar = () => {
         history.push('/')
     }
 
+    const goToBasket = () => {
+        history.push('/Basket')
+    }
+
     let loggedIn = (
         <Nav.Link href="/Login">Login</Nav.Link>
     )
@@ -34,10 +39,10 @@ export const TopStyleNavbar = () => {
 
     if(isAuthenticated){
         loggedIn = (
-            <Nav.Link onClick={() => {signOut()}}>Logout</Nav.Link>
+            <Nav.Link onClick={signOut}>Logout</Nav.Link>
         )
         myBasket = (
-            <Nav.Link onClick={() => {signOut()}}>Basket ()</Nav.Link>
+            <Nav.Link onClick={goToBasket}>Basket ({basketHasItems ? basket.length : 0})</Nav.Link>
         )
     }
 
