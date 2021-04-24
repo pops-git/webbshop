@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8QIgMIQYxHdbnQR7me6aRMII3Grfv8OPXQ6I+ySCsfUz1TwRcIW28wr0CxON3DebXwLcOSzXyom58pvvfNq5ig==",
+  "dgSpecHash": "K2qGMHLAEj5hFt1L376nMVuwluHswv1xd8vSJzigeatG3oAHygclE5+DKpdRgLClNSYVQm+FYeZAYSrsUCiE+w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\linus\\Dropbox\\Nackademin\\T2\\Frontend 2\\WebshopAPI\\WebshopWebAPI\\WebshopWebAPI\\WebshopWebAPI.csproj",
+  "projectFilePath": "C:\\Users\\linus\\Dropbox\\Nackademin\\T2\\Frontend 2\\Inlämningar\\webbshop\\WebshopWebAPI\\WebshopWebAPI\\WebshopWebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\linus\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\linus\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

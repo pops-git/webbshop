@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\linus\\Dropbox\\Nackademin\\T2\\Frontend 2\\WebshopAPI\\WebshopWebAPI\\WebshopWebAPI\\WebshopWebAPI.csproj": {}
+    "C:\\Users\\linus\\Dropbox\\Nackademin\\T2\\Frontend 2\\Inlämningar\\webbshop\\WebshopWebAPI\\WebshopWebAPI\\WebshopWebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\linus\\Dropbox\\Nackademin\\T2\\Frontend 2\\WebshopAPI\\WebshopWebAPI\\WebshopWebAPI\\WebshopWebAPI.csproj": {
+    "C:\\Users\\linus\\Dropbox\\Nackademin\\T2\\Frontend 2\\Inlämningar\\webbshop\\WebshopWebAPI\\WebshopWebAPI\\WebshopWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\linus\\Dropbox\\Nackademin\\T2\\Frontend 2\\WebshopAPI\\WebshopWebAPI\\WebshopWebAPI\\WebshopWebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\linus\\Dropbox\\Nackademin\\T2\\Frontend 2\\Inlämningar\\webbshop\\WebshopWebAPI\\WebshopWebAPI\\WebshopWebAPI.csproj",
         "projectName": "WebshopWebAPI",
-        "projectPath": "C:\\Users\\linus\\Dropbox\\Nackademin\\T2\\Frontend 2\\WebshopAPI\\WebshopWebAPI\\WebshopWebAPI\\WebshopWebAPI.csproj",
+        "projectPath": "C:\\Users\\linus\\Dropbox\\Nackademin\\T2\\Frontend 2\\Inlämningar\\webbshop\\WebshopWebAPI\\WebshopWebAPI\\WebshopWebAPI.csproj",
         "packagesPath": "C:\\Users\\linus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\linus\\Dropbox\\Nackademin\\T2\\Frontend 2\\WebshopAPI\\WebshopWebAPI\\WebshopWebAPI\\obj\\",
+        "outputPath": "C:\\Users\\linus\\Dropbox\\Nackademin\\T2\\Frontend 2\\Inlämningar\\webbshop\\WebshopWebAPI\\WebshopWebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\linus\\AppData\\Roaming\\NuGet\\NuGet.Config",
